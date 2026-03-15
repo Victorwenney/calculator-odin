@@ -1,0 +1,49 @@
+
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: lemonchiffon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculator {
+    height: 700px;
+    width: 550px;
+    background-color: grey;
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-content: baseline;
+}
+
+#display {
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    width: inherit;
+    height: 20%;
+    font-size: 25px;
+    background-color: aliceblue;
+}
+
+.clearBtn, .delBtn {
+    width: 48.5%;
+    aspect-ratio: 1 / 0.3;
+}
+
+button {
+    border-radius: 15px;
+    width: 22.9%;
+    aspect-ratio: 1 / 0.82;
+    font-size: 25px;
+    background-color: aliceblue;
+}
