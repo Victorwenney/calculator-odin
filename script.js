@@ -35,21 +35,31 @@ function operate(memoryNumber, currentNumber, operator) {
 const display = document.querySelector('#display');
 
 const numberBtn = Array.from(document.querySelectorAll('.numberBtn'));
-numberBtn.forEach(item => {
-    item.addEventListener('click', () => {
+numberBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
         if(display.textContent != '0'){
-            currentNumber += item.textContent;
+            currentNumber += btn.textContent;
         }else {
-            currentNumber = item.textContent;
+            currentNumber = btn.textContent;
         }
         display.textContent = currentNumber;
     });
 });
 
 const operatorBtn = Array.from(document.querySelectorAll('.operatorBtn'));
-operatorBtn.forEach(item => {
-    item.addEventListener('click', () => {
-            
+operatorBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+            //Passing display.textContent instead of currentNumber in case an operator is pressed numerous times and the
+            //currentNumber variable is already '', this way we prevent memoryNumber to also turn ''.
+            memoryNumber = display.textContent;
+            currentNumber = '';
+            switch (btn.id) {
+                case 'plus': operator = 1; break;
+                case 'minus': operator = 2; break;
+                case 'multiply': operator = 3; break;
+                case 'divide': operator = 4; break;
+                default: break; 
+            }
     });
 });
 
@@ -63,7 +73,7 @@ clearBtn.addEventListener('click', () => {
 
 const equalsBtn = document.querySelector('#equalsBtn');
 equalsBtn.addEventListener('click', () => {
-    
+    operate(memoryNumber, currentNumber, operator);
 })
 
 const delBtn = document.querySelector('#delBtn');
