@@ -77,5 +77,8 @@ delBtn.addEventListener('click', () => {
 
 const commaBtn = document.querySelector('#commaBtn');
 commaBtn.addEventListener('click', () => {
-
+    if(!display.textContent.includes('.')){
+        display.textContent += commaBtn.textContent;
+        currentNumber = display.textContent;
+    }
 });
