@@ -47,15 +47,18 @@ const operatorBtn = Array.from(document.querySelectorAll('.operatorBtn'));
 let operatorToggle = false;
 operatorBtn.forEach(btn => {
     btn.addEventListener('click', () => {
-            memoryNumber = display.textContent;   
-            switch (btn.id) {
-                case 'plus': operator = 1; break;
-                case 'minus': operator = 2; break;
-                case 'multiply': operator = 3; break;
-                case 'divide': operator = 4; break;
-                default: break; 
-            }
-            operatorToggle = true;
+        if(operator != 0){
+            operate(memoryNumber, currentNumber, operator);
+        }
+        switch (btn.id) {
+            case 'plus': operator = 1; break;
+            case 'minus': operator = 2; break;
+            case 'multiply': operator = 3; break;
+            case 'divide': operator = 4; break;
+            default: break; 
+        }    
+        memoryNumber = display.textContent;   
+        operatorToggle = true;
     });
 });
 
