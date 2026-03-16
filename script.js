@@ -15,9 +15,6 @@ function multiply(memoryNumber, currentNumber) {
 }
 
 function divide(memoryNumber, currentNumber) {
-    if(currentNumber <= 0){
-        return 'Error';
-    }
     return +memoryNumber / +currentNumber;
 }
 
@@ -77,7 +74,7 @@ clearBtn.addEventListener('click', () => {
 const equalsBtn = document.querySelector('#equalsBtn');
 equalsBtn.addEventListener('click', () => {
     operate(memoryNumber, currentNumber, operator);
-    memoryNumber = display.textContent;
+    memoryNumber = '';
     currentNumber = '';
     operatorToggle = false;
 });
