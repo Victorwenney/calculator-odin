@@ -59,3 +59,11 @@ operatorBtn.forEach(item => {
         }      
     });
 });
+
+const clearBtn = document.querySelector('#clearBtn');
+clearBtn.addEventListener('click', () => {
+    display.textContent = '0';
+    operator = 0;
+    memoryNumber = '';
+    currentNumber = '';
+});
