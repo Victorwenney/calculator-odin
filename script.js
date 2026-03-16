@@ -32,10 +32,30 @@ const display = document.querySelector('#display');
 const numberBtn = Array.from(document.querySelectorAll('.numberBtn'));
 numberBtn.forEach(item => {
     item.addEventListener('click', () => {
-        if(display.textContent != 0)
-            display.textContent += item.textContent;
-        else {
+        if(display.textContent === '0' || currentNumber === ''){
             display.textContent = item.textContent;
+            currentNumber += item.textContent;
+        }else {
+            display.textContent += item.textContent;
+            currentNumber += item.textContent;
         }
+    });
+});
+
+const operatorBtn = Array.from(document.querySelectorAll('.operatorBtn'));
+operatorBtn.forEach(item => {
+    item.addEventListener('click', () => {
+        if(operator != 0){
+            operate(memoryNumber, currentNumber, operator);
+        }
+        memoryNumber = display.textContent;
+        currentNumber = '';
+        switch (item.getAttribute('id')) {
+            case 'plus': operator = 1; break;
+            case 'minus': operator = 2; break;
+            case 'multiply': operator = 3; break;
+            case 'divide': operator = 4; break;
+            default: break;
+        }      
     });
 });
