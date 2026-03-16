@@ -15,6 +15,9 @@ function multiply(memoryNumber, currentNumber) {
 }
 
 function divide(memoryNumber, currentNumber) {
+    if(currentNumber <= 0){
+        return 'Error';
+    }
     return +memoryNumber / +currentNumber;
 }
 
@@ -47,7 +50,7 @@ const operatorBtn = Array.from(document.querySelectorAll('.operatorBtn'));
 let operatorToggle = false;
 operatorBtn.forEach(btn => {
     btn.addEventListener('click', () => {
-        if(operator != 0){
+        if(operator != 0 && !operatorToggle) {
             operate(memoryNumber, currentNumber, operator);
         }
         switch (btn.id) {
@@ -75,6 +78,7 @@ const equalsBtn = document.querySelector('#equalsBtn');
 equalsBtn.addEventListener('click', () => {
     operate(memoryNumber, currentNumber, operator);
     memoryNumber = display.textContent;
+    currentNumber = '';
     operatorToggle = false;
 });
 
